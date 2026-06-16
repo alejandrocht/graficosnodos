@@ -14,39 +14,36 @@ export const RAW_NODES = [
   {
     id: '1', label: 'Facultad', group: 'ac',
     lines: ['Facultad'], r: 20,
-    attrs: [['id_facultad'], ['nombre'], ['decano'], ['descripcion_breve']],
+    attrs: [['id_facultad'], ['nombre_facultad'], ['decano'], ['descripcion_breve']],
   },
   {
     id: '2', label: 'Carrera', group: 'ac',
     lines: ['Carrera'], r: 22,
     attrs: [
-      ['id_carrera'], ['nombre'], ['grado_academico'], ['modalidad'],
-      ['descripcion_breve'], ['estado', 'Activo / Rediseño'],
-    ],
+      ['id_carrera'], ['nombre_carrera'], ['codigo_carrera'],
+      ['descripcion_breve_carrera']
+    ]
   },
   {
     id: '3', label: 'MallaCurricular', group: 'ac',
     lines: ['Malla', 'Curricular'], r: 22,
     attrs: [
-      ['id_malla'], ['nombre_malla'], ['version'],
-      ['anio_inicio'], ['anio_fin'], ['total_creditos'], ['estado'],
+      ['id_malla'], ['nombre_malla'],
+      ['anio_inicio'], ['anio_fin'],['estado'],
     ],
   },
   {
     id: '4', label: 'Curso', group: 'ac',
     lines: ['Curso'], r: 20,
     attrs: [
-      ['id_curso'], ['codigo_signatura'], ['nombre'], ['creditos'],
-      ['nivel'], ['tipo_curso'], ['coordinador'], ['descripcion_breve'],
+      ['id_curso'], ['nombre_curso'],['nivel'], ['creditos'], ['coordinador'], ['modalidad']
     ],
   },
   {
     id: '5', label: 'Silabo', group: 'ac',
     lines: ['Silabo'], r: 20,
     attrs: [
-      ['id_silabo'], ['periodo_academico'], ['version'], ['sumilla'],
-      ['objetivo_general'], ['contenidos'], ['metodologia'],
-      ['sistema_evaluacion'], ['fecha_actualizacion'],
+      ['id_silabo'], ['sumilla'] 
     ],
   },
   {
@@ -74,18 +71,18 @@ export const RAW_NODES = [
     id: '8', label: 'Competencias', group: 'kn',
     lines: ['Competen-', 'cias'], r: 28,
     attrs: [
+      ['id_competencia'], ['codigo_competencia'],
       ['nombre_competencia'], ['tipo_competencia'],
-      ['descripcion_breve'], ['categoria'],
+      ['descripcion_breve_competencia'],
     ],
   },
   {
     id: '9', label: 'Conocimiento', group: 'kn',
     lines: ['Conoci-', 'miento'], r: 28,
     attrs: [
-      ['nombre_estandar'],
-      ['categoria', 'hard skill / soft skill / herramienta / marco teórico'],
-      ['sinonimos', 'lista de alias: "Python3", "Py"'],
-      ['nivel_complejidad'], ['descripcion_breve'],
+      ['id_conocimiento'],
+      ['nombre_conocimiento'],
+      ['descripcion_breve_conocimiento'],
     ],
   },
   {
