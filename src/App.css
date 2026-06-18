@@ -97,6 +97,17 @@ html, body, #root, .root {
   margin-bottom: 10px;
 }
 
+.node-comment {
+  font-size: 12px;
+  line-height: 1.45;
+  color: #3f4658;
+  background: #f7f8fc;
+  border: 1px solid #e5e8f2;
+  border-radius: 8px;
+  padding: 9px 10px;
+  margin-bottom: 14px;
+}
+
 .attr-row {
   display: flex; align-items: center; gap: 8px;
   padding: 5px 0; border-bottom: 1px solid #f2f2f8;

@@ -65,7 +65,7 @@ export default function Graph3D({ width, height, selected, onSelect, activeGroup
     )
     group.add(sphere)
 
-    const sprite = new SpriteText(node.label)
+    const sprite = new SpriteText(node.lines?.join('\n') ?? node.label)
     sprite.color = dimmed ? 'rgba(255,255,255,0.3)' : '#ffffff'
     sprite.backgroundColor = isSel ? node.groupColor : 'rgba(13,15,26,0.82)'
     sprite.borderColor = isSel ? '#ffffff' : node.groupColor
@@ -98,7 +98,7 @@ export default function Graph3D({ width, height, selected, onSelect, activeGroup
   }, [onSelect])
 
   const linkThreeObject = useCallback((link) => {
-    const sprite = new SpriteText(link.label)
+    const sprite = new SpriteText(link.label.replaceAll('_', '\n'))
     sprite.color = '#ffffff'
     sprite.backgroundColor = 'rgba(13,15,26,0.88)'
     sprite.borderColor = link.color

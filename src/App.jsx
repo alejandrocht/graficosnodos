@@ -39,7 +39,7 @@ export default function App() {
     <div className="root">
       <header className="topbar">
         <span className="topbar-title">Ontología CIAR</span>
-        <span className="topbar-sub">14 entidades · 29 relaciones</span>
+        <span className="topbar-sub">16 entidades · 27 relaciones</span>
         <div className="toggle">
           <button className={`toggle-btn ${view === '2d' ? 'active' : ''}`}
             onClick={() => { setView('2d'); setSelected(null) }}>2D</button>
@@ -64,6 +64,12 @@ export default function App() {
               <button className="ph-close" onClick={() => setSelected(null)}>✕</button>
             </div>
             <div className="pb">
+              {selected.comment && (
+                <>
+                  <div className="section-label">PROPÓSITO DEL NODO</div>
+                  <p className="node-comment">{selected.comment}</p>
+                </>
+              )}
               <div className="section-label">ATRIBUTOS</div>
               {selected.attrs.map(([name, hint]) => {
                 const isPk = name === selected.pk
