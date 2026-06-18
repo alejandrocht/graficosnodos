@@ -295,6 +295,7 @@ const RAW_LINKS = [
   ['10', '12', 'PUBLICA', 'me'],
   ['10', '16', 'PIDE_REQUERIMIENTO', 'me'],
   ['12', '16', 'TIENE_REQUERIMIENTO', 'me'],
+  ['12', '2', 'DIRIGE_A', 'me'],
   ['16', '8', 'REQUIERE_COMPETENCIA', 'me'],
   ['16', '9', 'REQUIERE_HABILIDAD', 'me'],
   ['16', '15', 'REQUIERE_HERRAMIENTA', 'me'],
