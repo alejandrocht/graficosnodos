@@ -305,6 +305,7 @@ const RAW_LINKS = [
   ['7', '8', 'MIDE', 'ev'],
   ['7', '9', 'MIDE', 'ev'],
   ['7', '14', 'ASOCIADA_A', 'ev'],
+  ['7', '2', 'EVALUA_CARRERA', 'ev'],
 
   // Puesto
   ['12', '14', 'OFRECE_PUESTO', 'me'],
