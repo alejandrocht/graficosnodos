@@ -204,15 +204,7 @@ export const RAW_NODES = [
     id: '17', label: 'CoberturaCurricular', group: 'ac',
     comment: 'Intermedia entre curso/sílabo y lo enseñado, permitiendo comparar currículo contra requerimientos laborales.',
     lines: ['Cobertura', 'Curricular'], r: 25,
-    attrs: [
-      ['id_cobertura', 'Identifica de forma única la cobertura curricular.'],
-      ['texto_original', 'Conserva el texto académico original del curso o sílabo.'],
-      ['unidad_silabo', 'Ubica la cobertura dentro de una unidad o sección del sílabo.'],
-      ['nivel_ensenado', 'Indica el nivel de profundidad con que se enseña.'],
-      ['tipo_cobertura', 'Distingue si se cubre competencia, habilidad, herramienta u otro elemento.'],
-      ['fuente_documento', 'Indica el documento de donde se extrajo la cobertura.'],
-      ['confianza_extraccion', 'Mide qué tan confiable fue la extracción de la cobertura.'],
-    ],
+    attrs: [],
   },
 ]
 
