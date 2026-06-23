@@ -34,18 +34,6 @@ export const RAW_NODES = [
     ],
   },
   {
-    id: '3', label: 'MallaCurricular', group: 'ac',
-    comment: 'Ordena los cursos de una carrera en un plan vigente y permite analizar cobertura curricular por periodo.',
-    lines: ['Malla', 'Curricular'], r: 22,
-    attrs: [
-      ['id_malla', 'Identifica de forma única la malla curricular.'],
-      ['nombre_malla', 'Distingue versiones o planes curriculares.'],
-      ['anio_inicio', 'Indica desde cuándo aplica la malla.'],
-      ['anio_fin', 'Indica hasta cuándo aplica o si fue reemplazada.'],
-      ['estado', 'Permite saber si la malla está activa, cerrada o en revisión.'],
-    ],
-  },
-  {
     id: '4', label: 'Curso', group: 'ac',
     comment: 'Es la unidad formativa donde se desarrollan competencias y se cubren habilidades o herramientas.',
     lines: ['Curso'], r: 20,
@@ -54,8 +42,7 @@ export const RAW_NODES = [
       ['nombre_curso', 'Permite reconocer el curso dentro de la malla.'],
       ['nivel', 'Ubica el curso por ciclo, semestre o progresión formativa.'],
       ['creditos', 'Mide la carga académica del curso.'],
-      ['coordinador', 'Registra al responsable académico del curso.'],
-      ['modalidad', 'Indica si el curso se dicta presencial, virtual o híbrido.'],
+      ['coordinador', 'Registra al responsable académico del curso.']
     ],
   },
   {
@@ -148,21 +135,6 @@ export const RAW_NODES = [
     ],
   },
   {
-    id: '13', label: 'DemandaMercado', group: 'me',
-    comment: 'Agrupa señales del mercado para identificar qué perfiles, habilidades o herramientas aparecen con mayor demanda.',
-    lines: ['Demanda', 'Mercado'], r: 22,
-    attrs: [
-      ['id_demanda', 'Identifica de forma única la demanda observada.'],
-      ['periodo', 'Permite analizar la demanda en un intervalo temporal.'],
-      ['descripcion', 'Resume el patrón de demanda detectado.'],
-      ['nivel_demanda', 'Clasifica la intensidad de la demanda.'],
-      ['frecuencia_aparicion', 'Mide cuántas veces aparece el patrón en las ofertas.'],
-      ['cantidad_ofertas', 'Indica cuántas ofertas sostienen la demanda observada.'],
-      ['fuente', 'Indica de dónde se extrajo la señal de mercado.'],
-      ['sector_referencial', 'Solo conserva texto auxiliar; la industria principal se modela con Industria --PRESENTA--> DemandaMercado.'],
-    ],
-  },
-  {
     id: '14', label: 'Puesto', group: 'me',
     comment: 'Representa el cargo o rol laboral ofrecido; sirve como contexto para responsabilidades, nivel y requerimientos del empleo.',
     lines: ['Puesto'], r: 22,
@@ -214,7 +186,6 @@ export const RAW_NODES = [
 const POS2D = {
   '1': [120, 80],     // Facultad
   '2': [120, 210],    // Carrera
-  '3': [120, 340],    // MallaCurricular
   '4': [120, 500],    // Curso
   '5': [120, 660],    // Silabo
   '17': [430, 600],   // CoberturaCurricular
@@ -227,14 +198,12 @@ const POS2D = {
   '14': [1120, 670],  // Puesto
   '11': [1460, 80],   // Industria
   '12': [1460, 390],  // OfertaLaboral
-  '13': [1460, 680],  // DemandaMercado
 }
 
 // Primary Key de cada entidad (id_* donde existe; clave natural en las demás).
 const PK = {
   '1': 'id_facultad',
   '2': 'id_carrera',
-  '3': 'id_malla',
   '4': 'id_curso',
   '5': 'id_silabo',
   '7': 'id_evaluacion',
@@ -243,7 +212,6 @@ const PK = {
   '10': 'ruc',
   '11': 'id_industria',
   '12': 'id_oferta',
-  '13': 'id_demanda',
   '14': 'id_puesto',
   '15': 'id_herramienta',
   '16': 'id_requerimiento',
@@ -266,8 +234,7 @@ export const NODES = RAW_NODES.map(n => ({
 const RAW_LINKS = [
   // Académico
   ['1', '2', 'OFRECE', 'ac'],
-  ['2', '3', 'TIENE', 'ac'],
-  ['3', '4', 'CONTIENE', 'ac'],
+  ['2', '4', 'CONTIENE', 'ac'],
   ['4', '5', 'TIENE', 'ac'],
 
   // Competencias y currículo
@@ -282,8 +249,6 @@ const RAW_LINKS = [
 
   // Mercado laboral
   ['11', '10', 'AGRUPA', 'me'],
-  ['11', '13', 'PRESENTA', 'me'],
-  ['13', '12', 'AGRUPA', 'me'],
   ['10', '12', 'PUBLICA', 'me'],
   ['10', '16', 'PIDE_REQUERIMIENTO', 'me'],
   ['12', '16', 'TIENE_REQUERIMIENTO', 'me'],
