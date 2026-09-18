@@ -1,7 +1,6 @@
 // ── Colores por grupo ─────────────────────────────────────────────────────
 export const GROUP = {
   ac: { color: '#e8952a', name: 'Académico' },
-  ev: { color: '#e74c3c', name: 'Evaluación' },
   kn: { color: '#16a085', name: 'Competencias' },
   me: { color: '#8e44ad', name: 'Mercado Laboral' },
 }
@@ -56,23 +55,6 @@ export const RAW_NODES = [
     ],
   },
   {
-    id: '7', label: 'EvalDesempeno', group: 'ev',
-    comment: 'Registra mediciones de desempeño.',
-    lines: ['Eval', 'Desempeño'], r: 24,
-    attrs: [
-      ['id_eva_desempenio', 'Identificador de evaluación.'],
-      ['fecha_evaluacion', 'Fecha de la evaluación.'],
-      ['periodo', 'Periodo.'],
-      ['puntaje_general', 'Resultado cuantitativo.'],
-      ['recomendaciones', 'Observaciones/Recomendaciones.'],
-      ['fecha_inicioo', 'Inicio.'],
-      ['fecha_fin', 'Fin.'],
-      ['id_carrera', 'Carrera asociada.'],
-      ['id_requerimiento_laboral', 'Requerimiento asociado.'],
-      ['id_empresa', 'Empresa que evalúa.'],
-    ],
-  },
-  {
     id: '8', label: 'Competencia', group: 'kn',
     comment: 'Capacidades amplias y formativas.',
     lines: ['Compe-', 'tencia'], r: 28,
@@ -84,9 +66,9 @@ export const RAW_NODES = [
     ],
   },
   {
-    id: '9', label: 'Habilidad', group: 'kn',
+    id: '9', label: 'Logros', group: 'kn',
     comment: 'Capacidades observables y concretas.',
-    lines: ['Habi-', 'lidad'], r: 28,
+    lines: ['Logros'], r: 24,
     attrs: [
       ['id_habilidades', 'Identificador de habilidad.'],
       ['nombre_habilidad', 'Nombre.'],
@@ -144,16 +126,6 @@ export const RAW_NODES = [
     ],
   },
   {
-    id: '15', label: 'Herramienta', group: 'kn',
-    comment: 'Tecnologías concretas.',
-    lines: ['Herra-', 'mienta'], r: 26,
-    attrs: [
-      ['id_herramienta', 'Identificador de herramienta.'],
-      ['nombre_herramienta', 'Nombre del software.'],
-      ['descripcion_breve_herramienta', 'Descripción.'],
-    ],
-  },
-  {
     id: '16', label: 'RequerimientoLaboral', group: 'me',
     comment: 'Intermedia entre empresa/oferta y lo solicitado.',
     lines: ['Req.', 'Laboral'], r: 25,
@@ -189,10 +161,8 @@ const POS2D = {
   '4': [120, 500],    // Curso
   '5': [120, 660],    // Silabo
   '17': [430, 600],   // CoberturaCurricular
-  '7': [430, 360],    // EvalDesempeno
   '8': [760, 210],    // Competencia
-  '9': [760, 450],    // Habilidad
-  '15': [760, 700],   // Herramienta
+  '9': [760, 450],    // Logros
   '10': [1120, 180],  // Empresa
   '16': [1120, 440],  // RequerimientoLaboral
   '14': [1120, 670],  // Puesto
@@ -205,14 +175,12 @@ const PK = {
   '2': 'id_carrera',
   '4': 'id_curso',
   '5': 'id_silabo',
-  '7': 'id_eva_desempenio',
   '8': 'id_competencia',
   '9': 'id_habilidades',
   '10': 'id_empresa',
   '11': 'id_industria',
   '12': 'id_ofe_laboral',
   '14': 'id_puesto',
-  '15': 'id_herramienta',
   '16': 'id_req_laboral',
   '17': 'id_cob_curricular',
 }
@@ -243,7 +211,6 @@ const RAW_LINKS = [
   ['5', '17', 'DECLARA_COBERTURA', 'ac'],
   ['17', '8', 'CUBRE_COMPETENCIA', 'kn'],
   ['17', '9', 'ENSEÑA_HABILIDAD', 'kn'],
-  ['17', '15', 'ENSEÑA_HERRAMIENTA', 'kn'],
 
   // Mercado laboral
   ['11', '10', 'AGRUPA', 'me'],
@@ -252,16 +219,6 @@ const RAW_LINKS = [
   ['12', '16', 'TIENE_REQUERIMIENTO', 'me'],
   ['12', '2', 'DIRIGE_A', 'me'],
   ['16', '8', 'REQUIERE_COMPETENCIA', 'me'],
-  ['16', '9', 'REQUIERE_HABILIDAD', 'me'],
-  ['16', '15', 'REQUIERE_HERRAMIENTA', 'me'],
-
-  // Evaluación
-  ['10', '7', 'REALIZA', 'ev'],
-  ['7', '8', 'MIDE', 'ev'],
-  ['7', '9', 'MIDE', 'ev'],
-  ['7', '15', 'MIDE', 'ev'],
-  ['7', '14', 'ASOCIADA_A', 'ev'],
-  ['7', '2', 'EVALUA_CARRERA', 'ev'],
 
   // Puesto
   ['12', '14', 'OFRECE_PUESTO', 'me'],

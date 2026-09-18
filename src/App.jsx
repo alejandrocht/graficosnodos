@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import Graph2D from './Graph2D'
 import Graph3D from './Graph3D'
-import { GROUP } from './data'
+import { GROUP, NODES, LINKS } from './data'
 import './App.css'
 
 const LEGEND = Object.entries(GROUP).map(([k, v]) => ({ key: k, ...v }))
@@ -39,7 +39,7 @@ export default function App() {
     <div className="root">
       <header className="topbar">
         <span className="topbar-title">Ontología CIAR</span>
-        <span className="topbar-sub">16 entidades · 27 relaciones</span>
+        <span className="topbar-sub">{NODES.length} entidades · {LINKS.length} relaciones</span>
         <div className="toggle">
           <button className={`toggle-btn ${view === '2d' ? 'active' : ''}`}
             onClick={() => { setView('2d'); setSelected(null) }}>2D</button>
