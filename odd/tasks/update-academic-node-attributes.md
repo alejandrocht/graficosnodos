@@ -8,13 +8,17 @@ Align the graph metadata for Curso, Silabo, Competencia, Logros, and CoberturaCu
 
 1. **Update the academic node attribute lists** — done. Updated the five requested node schemas and aligned the logro and coverage primary-key fields in `src/data.js`.
 2. **Validate the change** — done. `npm run lint` and `npm run build` pass; Vite reports the existing large JavaScript chunk warning (1,653.81 kB, 458.26 kB gzip).
-3. **Commit and push the feature branch** — in progress. Stage only this feature's files and leave pre-existing `.gitignore` and `.serena/project.yml` edits untouched.
+3. **Commit and push the feature branch** — done. Feature commit `aaaeed701badba21f57c1fa94ed5346a1107fabc` was pushed to `origin/feat/academic-node-attributes`. Pre-existing `.gitignore` and `.serena/project.yml` edits were not included.
 
 ## Verification evidence
 
 - `npm run lint` — pass, no warnings.
 - `npm run build` — pass; Vite warns that the JavaScript chunk is 1,653.81 kB (458.26 kB gzip), over the 500 kB threshold.
 - Runtime harness — N/A: this is a metadata-only change; existing node selection and details-panel rendering are unchanged.
+
+## Native review status
+
+No native review verdict was produced. Inspect scoped the workspace to the pre-existing `.gitignore` and `.serena/project.yml` edits; the committed-range START was rejected with `candidate-target-projection-drift` before creating a lineage. Those unrelated edits were left untouched.
 
 ## Rollback boundary
 
