@@ -53,6 +53,7 @@ export const RAW_NODES = [
     attrs: [
       ['id_silabo', 'Identificador del sílabo.'],
       ['codigo_silabo', 'Código del sílabo.'],
+      ['naturaleza', 'Teórico / Práctico / Taller.'],
       ['smilla', 'Contenidos declarados.'],
       ['id_curso', 'Curso asociado.'],
       ['periodo_academico', 'Período académico del sílabo.'],
@@ -66,7 +67,7 @@ export const RAW_NODES = [
       ['id_competencia', 'Identificador de la competencia.'],
       ['nombre_competencia', 'Nombre de la competencia.'],
       ['descripcion_breve', 'Descripción.'],
-      ['tipo_competencia', 'Blanda/Dura.'],
+      ['tipo_competencia', 'General / Específica / Técnica.'],
       ['codigo_competencia', 'Código de la competencia.'],
     ],
   },
@@ -77,6 +78,17 @@ export const RAW_NODES = [
     attrs: [
       ['id_logro', 'Identificador del logro.'],
       ['logro', 'Descripción del logro.'],
+    ],
+  },
+  {
+    id: '18', label: 'Habilidades', group: 'kn',
+    comment: 'Habilidades formativas y laborales.',
+    lines: ['Habili-', 'dades'], r: 26,
+    attrs: [
+      ['id_habilidad', 'Identificador de la habilidad.'],
+      ['id_carrera', 'Carrera asociada.'],
+      ['nombre_habilidad', 'Nombre de la habilidad.'],
+      ['desc_breve', 'Descripción breve.'],
     ],
   },
   {
@@ -166,6 +178,7 @@ const POS2D = {
   '17': [430, 600],   // CoberturaCurricular
   '8': [760, 210],    // Competencia
   '9': [760, 450],    // Logros
+  '18': [760, 690],   // Habilidades
   '10': [1120, 180],  // Empresa
   '16': [1120, 440],  // RequerimientoLaboral
   '14': [1120, 670],  // Puesto
@@ -186,6 +199,7 @@ const PK = {
   '14': 'id_puesto',
   '16': 'id_req_laboral',
   '17': 'id_cob_Curricular',
+  '18': 'id_habilidad',
 }
 
 // Enriquecer nodos con color de grupo, posición 2D y PK.
@@ -208,8 +222,6 @@ const RAW_LINKS = [
   ['4', '5', 'TIENE', 'ac'],
 
   // Competencias y currículo
-  ['4', '8', 'DESARROLLA', 'kn'],
-  ['5', '8', 'DECLARA', 'kn'],
   ['4', '17', 'TIENE_COBERTURA', 'ac'],
   ['5', '17', 'DECLARA_COBERTURA', 'ac'],
   ['17', '8', 'CUBRE_COMPETENCIA', 'kn'],
