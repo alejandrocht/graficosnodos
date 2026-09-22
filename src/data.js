@@ -42,6 +42,8 @@ export const RAW_NODES = [
       ['creditos', 'Carga académica.'],
       ['nivel', 'Ciclo o nivel.'],
       ['tipo_curso', 'Obligatorio / Electivo.'],
+      ['codigo_curso', 'Código del curso.'],
+      ['id_carrera', 'Carrera a la que pertenece.'],
     ],
   },
   {
@@ -51,7 +53,9 @@ export const RAW_NODES = [
     attrs: [
       ['id_silabo', 'Identificador del sílabo.'],
       ['codigo_silabo', 'Código del sílabo.'],
-      ['sumilla', 'Contenidos declarados.'],
+      ['smilla', 'Contenidos declarados.'],
+      ['id_curso', 'Curso asociado.'],
+      ['periodo_academico', 'Período académico del sílabo.'],
     ],
   },
   {
@@ -61,8 +65,9 @@ export const RAW_NODES = [
     attrs: [
       ['id_competencia', 'Identificador de la competencia.'],
       ['nombre_competencia', 'Nombre de la competencia.'],
-      ['descripcion_breve_competencia', 'Descripción.'],
+      ['descripcion_breve', 'Descripción.'],
       ['tipo_competencia', 'Blanda/Dura.'],
+      ['codigo_competencia', 'Código de la competencia.'],
     ],
   },
   {
@@ -70,9 +75,8 @@ export const RAW_NODES = [
     comment: 'Capacidades observables y concretas.',
     lines: ['Logros'], r: 24,
     attrs: [
-      ['id_habilidades', 'Identificador de habilidad.'],
-      ['nombre_habilidad', 'Nombre.'],
-      ['descripcion_breve', 'Interpretación.'],
+      ['id_logro', 'Identificador del logro.'],
+      ['logro', 'Descripción del logro.'],
     ],
   },
   {
@@ -144,12 +148,11 @@ export const RAW_NODES = [
     comment: 'Intermedia entre curso/sílabo y lo enseñado.',
     lines: ['Cobertura', 'Curricular'], r: 25,
     attrs: [
-      ['id_cob_curricular', 'Identificador de cobertura.'],
+      ['id_cob_Curricular', 'Identificador de cobertura curricular.'],
       ['id_curso', 'Curso asociado.'],
-      ['id_silabo', 'Silabo asociado.'],
+      ['id_silabo', 'Sílabo asociado.'],
       ['id_competencia', 'Competencia enseñada.'],
-      ['id_habilidad', 'Habilidad enseñada.'],
-      ['id_herramienta', 'Herramienta enseñada.'],
+      ['id_logro', 'Logro enseñado.'],
     ],
   },
 ]
@@ -176,13 +179,13 @@ const PK = {
   '4': 'id_curso',
   '5': 'id_silabo',
   '8': 'id_competencia',
-  '9': 'id_habilidades',
+  '9': 'id_logro',
   '10': 'id_empresa',
   '11': 'id_industria',
   '12': 'id_ofe_laboral',
   '14': 'id_puesto',
   '16': 'id_req_laboral',
-  '17': 'id_cob_curricular',
+  '17': 'id_cob_Curricular',
 }
 
 // Enriquecer nodos con color de grupo, posición 2D y PK.
