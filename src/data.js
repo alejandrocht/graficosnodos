@@ -225,7 +225,8 @@ const RAW_LINKS = [
   ['4', '17', 'TIENE_COBERTURA', 'ac'],
   ['5', '17', 'DECLARA_COBERTURA', 'ac'],
   ['17', '8', 'CUBRE_COMPETENCIA', 'kn'],
-  ['17', '9', 'ENSEÑA_HABILIDAD', 'kn'],
+  ['17', '9', 'CUBRE_LOGRO', 'kn'],
+  ['17', '18', 'CUBRE_HABILIDAD', 'kn'],
 
   // Mercado laboral
   ['11', '10', 'AGRUPA', 'me'],
@@ -234,6 +235,7 @@ const RAW_LINKS = [
   ['12', '16', 'TIENE_REQUERIMIENTO', 'me'],
   ['12', '2', 'DIRIGE_A', 'me'],
   ['16', '8', 'REQUIERE_COMPETENCIA', 'me'],
+  ['16', '18', 'REQUIERE_HABILIDAD', 'me'],
 
   // Puesto
   ['12', '14', 'OFRECE_PUESTO', 'me'],
